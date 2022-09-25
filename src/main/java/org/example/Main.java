@@ -66,11 +66,33 @@ public class Main {
         soyAd.sendKeys("soy adım");
 
         WebElement telNo = driver.findElement(By.cssSelector("#js-orders-modal-container > div > div.modal-content > form > div:nth-child(5) > div > div > label > input"));
-        telNo.sendKeys("05058586565");
+        telNo.sendKeys("5058586565");
 
         Select sehirSecimi = new Select(driver.findElement(By.cssSelector("#js-orders-modal-container > div > div.modal-content > form > div:nth-child(7) > div:nth-child(1) > div > label > div > select")));
         sehirSecimi.selectByVisibleText("ANKARA");
+        TimeUnit.SECONDS.sleep(2);
+
+        Select ilceSecimi = new Select(driver.findElement(By.cssSelector("#js-orders-modal-container > div > div.modal-content > form > div:nth-child(7) > div:nth-child(2) > div > label > div > select")));
+        ilceSecimi.selectByVisibleText("GÖLBAŞI");
+        TimeUnit.SECONDS.sleep(2);
+
+        Select mahalleSecimi = new Select(driver.findElement(By.cssSelector("#js-orders-modal-container > div > div.modal-content > form > div:nth-child(8) > label > div > select")));
+        mahalleSecimi.selectByVisibleText("AHİBOZ MAH");
+
+        WebElement adresDetayi = driver.findElement(By.cssSelector("#js-orders-modal-container > div > div.modal-content > form > div:nth-child(9) > label > textarea"));
+        adresDetayi.sendKeys("332. cadde no:12/1");
+
+        WebElement kaydet = driver.findElement(By.cssSelector("#js-orders-modal-container > div > div.modal-content > form > button.button.green.js-set-country.js-prevent-emoji"));
+        kaydet.click();
+
+        WebElement kargoRadioButton = driver.findElement(By.cssSelector("body > section > section > div > div.checkout-addresses.js-tab-content.active > div > div.col-sm-9 > div > div.continue > form > div.cargo > div.cargo-list > ul > li:nth-child(2) > label > div.check > div"));
+        kargoRadioButton.click();
+
+
         //driver.close();
+
+
+        
 
         
     }
